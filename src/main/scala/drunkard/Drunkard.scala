@@ -1,12 +1,11 @@
 
 package main.scala.drunkard
 
-import scala.util.Random
 import scala.collection.mutable.ArrayBuffer
 
 object Drunkard extends App {
   // val input = readLine("prompt> ")
-  var a:ArrayBuffer[Array[String]] = ArrayBuffer[Array[String]]()
+  var a: ArrayBuffer[Array[String]] = ArrayBuffer[Array[String]]()
   Iterator.continually(Console.readLine).takeWhile(_ != null).foreach(line => a += line.split(" "))
 
   def walk(n: Int) = {
@@ -19,5 +18,6 @@ object Drunkard extends App {
     next = ((multiplier * next) % modulus).asInstanceOf[Int]
 
   }
+
   println("Done")
 }

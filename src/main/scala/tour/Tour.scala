@@ -11,12 +11,10 @@ object Tour extends App {
 
   def clean(line: String): List[Double] = line.split(" ").map(_.toDouble).toList
 
-  var dims = ListBuffer[Either[Boolean,Double]]()
+  var dims = ListBuffer[Either[Boolean, Double]]()
 
-  def dim(line: String): Either[Boolean,Double] = {
-    try {
-      Right(line.toInt)
-    }
+  def dim(line: String): Either[Boolean, Double] = {
+    try Right(line.toInt)
     catch {
       case e: Throwable => Left(false)
     }
@@ -56,7 +54,6 @@ object Tour extends App {
     case (c, (value, index)) =>
       val i = (if (0 < index && p.length > index) index - 1 else index)
       c + euclideanDist(p(i), value)
-
   }
 
   println(eucSum)
@@ -77,7 +74,7 @@ object Tour extends App {
   println("manhattan: %s".format(manhattan))
   println("euclid: %s".format(euclid))
 
-  val sums =  paths.map(_._2.transpose.map(p => (p :\ 0.0){_ + _}))
+  val sums = paths.map(_._2.transpose.map(p => (p :\ 0.0) {_ + _}))
 
   //  println(paths.map(_._1) <|*|> paths.map(_._2))
 
@@ -85,9 +82,10 @@ object Tour extends App {
   val sumsMap2 = paths.map(_._2).zip(sums)
   println("(Path, Sum): %s".format(sumsMap2))
 
-  dims.indices.foreach(d => dims(d) match {
-    case Right(i: Double) => "Instance " + (d + 1).toString + ": " + i
-  })
+  dims.indices.foreach(d =>
+    dims(d) match {
+      case Right(i: Double) => "Instance " + (d + 1).toString + ": " + i
+    })
 
   println(paths)
 

@@ -36,14 +36,8 @@ object NSpaceGen extends App {
 
   def compareArrays(mil: ArrayBuffer[Array[Int]], thous: ArrayBuffer[Array[Int]]): ArrayBuffer[Array[Int]] = {
     var matched = ArrayBuffer[Array[Int]]()
-    mil.foreach {
-      m =>
-        thous.foreach {
-          t =>
-            if (m.deep == t.deep) {
-              matched += t
-            }
-        }
+    mil.foreach { m =>
+      thous.foreach(t => if (m.deep == t.deep) {matched += t})
     }
     matched
   }
