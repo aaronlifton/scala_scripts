@@ -92,9 +92,11 @@ object NSpaceGen extends App {
       a1.map(y => (y, euclideanDist(y, a2))).toArray
     }
 
-    origin = Array(1,2,3).map(_.toDouble)
+//    origin = Array(1,2,3).map(_.toDouble)
 
     val zpoints = zipWithEuclidianDist(points.toArray, origin)
     println(zpoints.map(a => (a._1.toList, a._2)).mkString("\n"))
+    val closest = zpoints.sortWith(_._2 < _._2).head
+    println("Closest point: %s\nDistance: %s".format(closest._1.toList, closest._2))
   }
 }
