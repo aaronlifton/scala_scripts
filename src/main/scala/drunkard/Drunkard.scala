@@ -20,10 +20,10 @@ object Drunkard extends App {
 
   }
 
-  def walk(m: Int) = {
-
+  def walk(m: Int): String = {
+    return "a"
   }
-  def histrogram(m: Int, n: Int, seed: Int) = {
+  def histrogram(m: Int, n: Int, seed: Int): String = {
     return "a"
   }
 

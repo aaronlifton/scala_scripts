@@ -1,3 +1,4 @@
+package main.scala.nspacegen
 
 import scala.collection.mutable.ArrayBuffer
 import scala.math.{abs, pow, sqrt}
